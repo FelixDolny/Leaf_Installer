@@ -13,17 +13,25 @@ if [[ "$response" =~ ^([yY])$ ]]; then
         ************************************************************
 	** Altering system mirrors to track latest stable edition **
 	************************************************************'
+   cp -f sources.list /etc/apt/sources.list
+   
+   echo '
+   	***********************************************************
+	**              Mirrors have been updated                **
+	***********************************************************'
+   cat /etc/apt/sources.list 
 
    echo '
         ***********************************************************
    	** System installer is about to check for system updates **
 	***********************************************************'
-
+   apt update
 
    echo ' 
    	******************************************************
 	** System installer is about to upgrade your system **
 	******************************************************'
+   apt dist-update -y
 
    echo ' 
    	***************************************************************
